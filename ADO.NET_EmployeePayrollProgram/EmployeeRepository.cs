@@ -57,7 +57,7 @@ namespace ADO.NET_EmployeePayrollProgram
         /// UC2- Adding Employee
         /// </summary>
         /// <param name="model"></param>
-
+        
         public void AddEmployee(EmployeePayroll model)
         {
             try
@@ -97,6 +97,41 @@ namespace ADO.NET_EmployeePayrollProgram
                 connection.Close();
             }
         }
+        /// <summary>
+        /// UC3 - Update Employee Details
+        /// </summary>
+        /// <param name="model"></param>
+        public void UpdateEmployeeDetails(EmployeePayroll model)
+        {
+            try
+            {
+                connection = new SqlConnection(connectionString);
+                SqlCommand command = new SqlCommand("dbo.spUpdateEmployee", connection);
+                command.CommandType = CommandType.StoredProcedure;
+                command.Parameters.AddWithValue("@Name", model.Name);
+                command.Parameters.AddWithValue("@Id", model.EmployeeID);
+                command.Parameters.AddWithValue("Basic_Pay", model.BasicPay);
+                connection.Open();
+                int result = command.ExecuteNonQuery();
+                if(result != 0)
+                {
+                    Console.WriteLine("Employee Details Successfully Upadated");
+                }
+                else
+                {
+                    Console.WriteLine("Failed To Update Employee Details");
+                }
+            }
+            catch(Exception ex)
+            {
+                Console.WriteLine(ex.Message);
+            }
+            finally
+            {
+                connection.Close();
+            }
+        }
+        
     }
     
 }

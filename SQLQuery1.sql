@@ -13,3 +13,4 @@
 As
 Insert Into Employee_Payroll_Table(Name,Basic_Pay,StartDate,Gender,Phone,Department,Address,Deductions,Taxable_Pay,Income_Tax,Net_Pay)
 Values(@Name,@Basic_Pay,@StartDate,@Gender,@Phone,@Department,@Address,@Deductions, @Taxable_Pay, @Income_Tax,@Net_Pay);
+
