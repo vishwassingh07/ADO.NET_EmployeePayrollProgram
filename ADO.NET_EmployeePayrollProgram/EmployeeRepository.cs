@@ -131,6 +131,36 @@ namespace ADO.NET_EmployeePayrollProgram
                 connection.Close();
             }
         }
+
+        public void DeleteEmployee(EmployeePayroll model)
+        {
+            try
+            {
+                connection = new SqlConnection(connectionString);
+                SqlCommand command = new SqlCommand("spDeleteEmployee", connection);
+                command.CommandType = CommandType.StoredProcedure;
+                command.Parameters.AddWithValue("@Name", model.Name);
+                command.Parameters.AddWithValue("@Id", model.EmployeeID);
+                connection.Open();
+                int result = command.ExecuteNonQuery();
+                if(result != 0)
+                {
+                    Console.WriteLine("Successfully Deleted Employee Details");
+                }
+                else
+                {
+                    Console.WriteLine("Could Not Delete");
+                }
+            }
+            catch(Exception ex)
+            {
+                Console.WriteLine(ex.Message);
+            }
+            finally
+            {
+                connection.Close();
+            }
+        }
         
     }
     

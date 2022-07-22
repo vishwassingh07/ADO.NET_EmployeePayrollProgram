@@ -9,7 +9,8 @@ namespace ADO.NET_EmployeePayrollProgram
             EmployeeRepository repository = new EmployeeRepository();
             EmployeePayroll model = new EmployeePayroll();
             bool end = true;
-            Console.WriteLine("1. Get All The Employees\n2. Add Employee\n3. Update Employee Details\n4. End The Program");
+            Console.WriteLine("1. Get All The Employees\n2. Add Employee\n3. Update Employee Details\n4. " +
+                "Delete Employee \n5.End The Program");
             while (end)
             {
                 Console.WriteLine("Choose an option to execute : ");
@@ -40,8 +41,13 @@ namespace ADO.NET_EmployeePayrollProgram
                         model.EmployeeID = 1;
                         model.BasicPay = 99999;
                         repository.UpdateEmployeeDetails(model);
-                        break; 
+                        break;
                     case 4:
+                        model.Name = "Virat";
+                        model.EmployeeID = 13;
+                        repository.DeleteEmployee(model);
+                        break;
+                    case 5:
                         end = false;
                         break;
                     default:
