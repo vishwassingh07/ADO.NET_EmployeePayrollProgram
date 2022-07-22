@@ -6,6 +6,8 @@ namespace ADO.NET_EmployeePayrollProgram
         static void Main(string[] args)
         {
             Console.WriteLine("Welcome To The Employee Payroll Program With ADO.NET ");
+            EmployeeRepository repository = new EmployeeRepository();
+            repository.GetAllEmployees();
         }
     }
 }
