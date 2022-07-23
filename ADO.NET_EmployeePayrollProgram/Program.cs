@@ -10,7 +10,7 @@ namespace ADO.NET_EmployeePayrollProgram
             EmployeePayroll model = new EmployeePayroll();
             bool end = true;
             Console.WriteLine("1. Get All The Employees\n2. Add Employee\n3. Update Employee Details\n4. " +
-                "Delete Employee \n5.End The Program");
+                "Delete Employee \n5. Retrieve Employees Within Specific DateRange\n6. End The Program");
             while (end)
             {
                 Console.WriteLine("Choose an option to execute : ");
@@ -48,6 +48,9 @@ namespace ADO.NET_EmployeePayrollProgram
                         repository.DeleteEmployee(model);
                         break;
                     case 5:
+                        repository.RetrieveEmployeeByDate(model);
+                        break;
+                    case 6:
                         end = false;
                         break;
                     default:
